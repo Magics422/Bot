@@ -4,7 +4,7 @@ import settings
 
 from handlers import (greet_user, temperature, talk_to_me, subfebril_temper, hi_temper, stomach_ache, acute_stomach_ache, chronic_stomach_ache,
 travma_krov, travma, travma_keyboard, heart_keyboard, arhythmia_acute, arhythmia_chron, headache_key, headache_chron, headache_acute,
-    )
+chest_key, heart_pain, chest_pain, back_key, diabet_key, pressure_key, convulsii_key, weakness_key, stroke_key,   )
 
 
 logging.basicConfig(filename='bot.log', level=logging.INFO)
@@ -32,22 +32,28 @@ def main():
     dp.add_handler(MessageHandler(Filters.regex('^(Головная боль)$'), headache_key))
     dp.add_handler(MessageHandler(Filters.regex('^(Острые боли в голове, начались внезапно)$'), headache_acute))
     dp.add_handler(MessageHandler(Filters.regex('^(Постоянные боли в голове, устаногвлено хр. заболевание)$'), headache_chron))
-
-    dp.add_handler(MessageHandler(Filters.regex('^(Боли в области сердца (за грудиной))$'), subfebril_temper))
-    dp.add_handler(MessageHandler(Filters.regex('^(Боли в груди с боку)$'), hi_temper))
+    dp.add_handler(MessageHandler(Filters.regex('^(Боли в груди)$'), chest_key))
+    dp.add_handler(MessageHandler(Filters.regex('^(Боли в области сердца (за грудиной))$'), heart_pain))
+    dp.add_handler(MessageHandler(Filters.regex('^(Боли в груди с боку)$'), chest_pain))
+    dp.add_handler(MessageHandler(Filters.regex('^(Боли в спине и конечностях)$'), back_key))
+    
     dp.add_handler(MessageHandler(Filters.regex('^(Боли в спине после физической нагрузки)$'), stomach_ache))
     dp.add_handler(MessageHandler(Filters.regex('^(Боли в спине при налличии хр.заболеваний)$'), acute_stomach_ache))
+    dp.add_handler(MessageHandler(Filters.regex('^(Сахарный диабет)$'), diabet_key))
     dp.add_handler(MessageHandler(Filters.regex('^(Высокие сахара)$'), chronic_stomach_ache))
     dp.add_handler(MessageHandler(Filters.regex('^(Низкие сахара)$'), temperature))
+    dp.add_handler(MessageHandler(Filters.regex('^(Артериальное давление)$'), pressure_key))
     dp.add_handler(MessageHandler(Filters.regex('^(Высокое аретриальное давление)$'), subfebril_temper))
     dp.add_handler(MessageHandler(Filters.regex('^(Низкое артериальное давление)$'), hi_temper))
+    dp.add_handler(MessageHandler(Filters.regex('^(Судороги)$'), convulsii_key))
     dp.add_handler(MessageHandler(Filters.regex('^(Впервые возникшие судороги)$'), stomach_ache))
     dp.add_handler(MessageHandler(Filters.regex('^(Судороги с имеющиемися хроническими заболеваниями)$'), acute_stomach_ache))
+    dp.add_handler(MessageHandler(Filters.regex('^(Слабость)$'), weakness_key))
     dp.add_handler(MessageHandler(Filters.regex('^(Слабость возникшая внезапно первый день)$'), chronic_stomach_ache))    dp.add_handler(MessageHandler(Filters.regex('^(Боли в животе с имеющиемися хроническими заболеваниями)$'), chronic_stomach_ache))
     dp.add_handler(MessageHandler(Filters.regex('^(Слабость нарастающая постепенно)$'), temperature))
+    dp.add_handler(MessageHandler(Filters.regex('^(Нарушение речи, координации)$'), stroke_key))
     dp.add_handler(MessageHandler(Filters.regex('^(Нарушилась речь, парализовало)$'), temperature))
     dp.add_handler(MessageHandler(Filters.regex('^(Головокружение)$'), temperature))
-    dp.add_handler(MessageHandler(Filters.regex('^(Чувство онемения в руках, нога)$'), temperature))
 
     dp.add_handler(MessageHandler(Filters.text, talk_to_me))
     
