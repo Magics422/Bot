@@ -43,7 +43,7 @@ def headache_keyboard():
 
 def chest_pain_keyboard():
     return ReplyKeyboardMarkup([
-    ['Боли в области сердца (за грудиной)'],
+    ['Боли в области сердца'],
     ["Боли в груди с боку"],
 ])
 

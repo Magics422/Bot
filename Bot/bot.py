@@ -34,7 +34,7 @@ def main():
     dp.add_handler(MessageHandler(Filters.regex('^(Острые боли в голове, начались внезапно)$'), headache_acute))
     dp.add_handler(MessageHandler(Filters.regex('^(Постоянные боли в голове, устаногвлено хр. заболевание)$'), headache_chron))
     dp.add_handler(MessageHandler(Filters.regex('^(Боли в груди)$'), chest_key))
-    dp.add_handler(MessageHandler(Filters.regex('^(Боли в области сердца (за грудиной))$'), heart_pain))
+    dp.add_handler(MessageHandler(Filters.regex('^(Боли в области сердца)$'), heart_pain))
     dp.add_handler(MessageHandler(Filters.regex('^(Боли в груди с боку)$'), chest_pain))
     dp.add_handler(MessageHandler(Filters.regex('^(Боли в спине и конечностях)$'), back_key))
     dp.add_handler(MessageHandler(Filters.regex('^(Боли в спине после физической нагрузки)$'), back_hard))
